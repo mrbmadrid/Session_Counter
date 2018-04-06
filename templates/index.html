@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{session['counter']}}</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#reset').click(function(){
+				$.get('/reset', function(res){
+					$('h1').html(res)
+				})
+			})
+			$('#two').click(function(){
+				$.get('/two', function(res){
+					$('h1').html(res)
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>{{session['counter']}}</h1>
+	<button id="reset">Reset</button>
+	<button id="two">Plus 2</button>
+</body>
+</html>
